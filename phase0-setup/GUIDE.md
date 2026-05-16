@@ -2,7 +2,7 @@
 
 ## 学习目标
 
-在你的 Ubuntu 24.04 (arm64) 上安装 ROS2 Jazzy 及全套开发工具，并能运行 `ros2 --version`。
+在你的 Ubuntu 24.04 (arm64) 上安装 ROS2 Jazzy 及全套开发工具，并能成功运行 demo 节点。
 
 ## 背景知识
 
@@ -70,17 +70,17 @@ source ~/.bashrc
 ## 验证
 
 ```bash
-# 1. 检查 ROS2 版本
-ros2 --version
-# 期望输出: 类似 "ROS 2 Jazzy Jalisco ..."
-
-# 2. 检查 ROS2 环境变量
+# 1. 检查 ROS2 环境变量（必须先 source setup.bash）
 echo $ROS_DISTRO
 # 期望输出: jazzy
 
-# 3. 检查 colcon
-colcon --version
-# 期望有版本号输出
+# 2. 检查 ROS2 包是否安装成功
+dpkg -l | grep ros-jazzy-desktop
+# 期望输出: ii  ros-jazzy-desktop  <version> ...
+
+# 3. 检查 colcon 是否可用
+colcon version-check
+# 对比本地版本与 PyPI 最新版本
 
 # 4. 试运行一个 demo（ROS2 自带的 talker/listener）
 # 终端1:

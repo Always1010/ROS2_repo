@@ -130,14 +130,9 @@ ros2 param set /param_node max_speed 5.0
 
 ros2 param set /param_node robot_name "cool_bot"
 
-# 导出所有参数到 YAML 文件
-ros2 param dump /param_node
-# 会在当前目录生成 param_node.yaml
-```
-
-### Step 5: 查看导出的 YAML
-
-```bash
+# 导出所有参数到 YAML（输出到终端 + 保存到文件）
+ros2 param dump /param_node > param_node.yaml
+# 查看导出的文件
 cat ./param_node.yaml
 ```
 
@@ -152,7 +147,7 @@ cat ./param_node.yaml
     use_sim_time: false
 ```
 
-### Step 6: 从 YAML 文件加载参数
+### Step 5: 从 YAML 文件加载参数
 
 修改 YAML 文件后，重新运行节点并加载：
 
@@ -172,8 +167,8 @@ ros2 run my_robot_cpp param_node --ros-args --params-file ./param_node.yaml
 | `ros2 param list /node` | 列出节点的所有参数 |
 | `ros2 param get /node param_name` | 读取参数值 |
 | `ros2 param set /node param_name value` | 动态修改参数 |
-| `ros2 param dump /node` | 导出参数到 YAML 文件 |
-| `ros2 param load /node --params-file file.yaml` | 从 YAML 加载参数 |
+| `ros2 param dump /node > file.yaml` | 导出参数到 YAML 文件 |
+| `ros2 param load /node file.yaml` | 从 YAML 加载参数到运行中的节点 |
 
 ## 验证清单
 

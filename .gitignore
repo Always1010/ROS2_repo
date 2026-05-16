@@ -1,0 +1,26 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other temp folders
+__*/
+
+# ignore session-log.md
+session-log.md
